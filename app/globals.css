@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/*
+  "Dusk" palette (saanjh = dusk). Cool and calm on purpose: no cream, no terracotta.
+  Text colours are checked for WCAG AA contrast on the backgrounds they sit on.
+*/
+@theme {
+  --color-ink: #1e2238; /* night indigo: text, dark sections */
+  --color-ink-2: #2a2f4a; /* raised surfaces on dark */
+  --color-slate: #5b6478; /* secondary text */
+  --color-mist: #f3f4f7; /* page background */
+  --color-paper: #fbfbfd; /* cards */
+  --color-line: #dde0e8; /* hairlines */
+  --color-sage: #4e6e63; /* eucalyptus: primary actions */
+  --color-sage-dark: #3e5a50;
+  --color-sage-soft: #e3ebe7;
+  --color-lilac: #c9bfd6; /* dusk highlight */
+  --color-lilac-soft: #ece8f2;
+  --color-haze: #a9a3c4; /* soft text on dark */
+
+  --font-display: "Rupee", var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Rupee", var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+/*
+  Draw the ₹ sign with the phone's or computer's own font. Without this, the ₹ in prices makes
+  the browser download two extra web-font files (about 35 KB) just for that one character.
+*/
+@font-face {
+  font-family: "Rupee";
+  src: local("Segoe UI"), local("SegoeUI"), local("Roboto"), local("Roboto-Regular"), local("Noto Sans"),
+    local("NotoSans-Regular"), local("Helvetica Neue"), local("HelveticaNeue");
+  unicode-range: U+20B9;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-mist);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Sections below the first screen: the browser skips laying them out until they're scrolled near. */
+.defer-render {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1000px;
+}
+
+/* A thin dusk line used as a section ornament. */
+.dusk-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-lilac), var(--color-sage), transparent);
+}
+
+/* Hide the horizontal scrollbar on the date strip while keeping it scrollable. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-sage);
+  outline-offset: 2px;
+}
