@@ -526,7 +526,7 @@ function SummaryRow({ label, value, sub, muted }: { label: string; value: string
   return (
     <div>
       <dt className="text-slate text-xs">{label}</dt>
-      <dd className={`mt-0.5 font-semibold ${muted ? "text-slate/70 font-medium" : "text-ink"}`}>{value}</dd>
+      <dd className={`mt-0.5 ${muted ? "text-slate font-medium" : "text-ink font-semibold"}`}>{value}</dd>
       {sub && <dd className="text-slate text-xs">{sub}</dd>}
     </div>
   );

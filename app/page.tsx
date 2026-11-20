@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { BookingWidget } from "@/components/booking/BookingWidget";
 import { Hero } from "@/components/Hero";
 import {
@@ -37,7 +38,10 @@ export default function Home() {
               title="Book an appointment."
               intro="Pick a service, a stylist and a time. You're seeing live availability: times that are already taken are struck through."
             />
-            <BookingWidget />
+            {/* Its own Suspense boundary lets React hydrate the widget separately from the rest of the page. */}
+            <Suspense>
+              <BookingWidget />
+            </Suspense>
           </div>
         </section>
         <ReviewsSection />

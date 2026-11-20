@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { categories, gallery, reviews, salon, stylists, weekdayNames } from "@/lib/salon";
 import { formatTime } from "@/lib/time";
 import { ServiceMenu } from "./ServiceMenu";
@@ -17,7 +18,9 @@ export function ServicesSection() {
           title="Everything is done by a senior artist."
           intro="Prices include GST. Colour and smoothing prices depend on length and density; your stylist confirms the final price before starting."
         />
-        <ServiceMenu />
+        <Suspense>
+          <ServiceMenu />
+        </Suspense>
       </div>
     </section>
   );
