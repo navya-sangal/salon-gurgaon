@@ -17,13 +17,18 @@ export function Hero() {
         <div>
           <p className="text-haze text-xs font-semibold tracking-[0.25em] uppercase">Golf Course Road · Gurugram</p>
           <h1 id="hero-title" className="font-display mt-5 text-5xl leading-[1.02] font-medium sm:text-6xl lg:text-7xl">
-            <em className="text-lilac">Unhurried</em> hair, skin &amp; bridal care.
+            {/* Fixed line breaks on phones: the heading keeps the same height before and after the web font loads. */}
+            <em className="text-lilac">Unhurried</em> <br className="sm:hidden" />
+            hair, skin &amp; <br className="sm:hidden" />
+            bridal care.
           </h1>
-          <p className="text-haze mt-6 max-w-md text-base leading-relaxed sm:text-lg">
+          {/* Room for four lines on phones, so a re-wrap when the font loads can't push the page down. */}
+          <p className="text-haze mt-6 min-h-[4lh] max-w-md text-base leading-relaxed sm:min-h-0 sm:text-lg">
             A quiet salon with senior stylists only and never more than five guests on the floor. Book online and
             see real availability for every stylist.
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          {/* Always stacked on phones, so the font swap can't change how the buttons wrap. */}
+          <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
             <a
               href="#book"
               className="bg-mist text-ink hover:bg-lilac-soft inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition-colors"

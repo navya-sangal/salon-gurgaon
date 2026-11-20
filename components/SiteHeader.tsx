@@ -8,9 +8,12 @@ const nav = [
 
 export function ConceptBanner() {
   return (
-    <div className="bg-ink-2 text-haze px-4 py-2 text-center text-xs leading-snug">
-      <strong className="text-lilac font-semibold">Concept build.</strong> Saanjh Salon is fictional, made as a portfolio
-      demo. Bookings are saved for real, but nobody will be expecting you.
+    // Fixed height for three lines on phones so the page doesn't shift when the web font loads.
+    <div className="bg-ink-2 text-haze flex min-h-[calc(3lh+1rem)] items-center justify-center px-4 py-2 text-center text-xs leading-snug sm:min-h-0">
+      <p>
+        <strong className="text-lilac font-semibold">Concept build.</strong> Saanjh Salon is fictional, made as a
+        portfolio demo. Bookings are saved for real, but nobody will be expecting you.
+      </p>
     </div>
   );
 }
